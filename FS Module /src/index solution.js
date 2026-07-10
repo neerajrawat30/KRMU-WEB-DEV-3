@@ -4,12 +4,12 @@ const path = require("path");
 const inputPath = path.join(__dirname, "students.txt");
 const outputPath = path.join(__dirname, "report.txt");
 
-const data = fs.readFileSync(inputPath, "utf8").trim().split("\n");
+const data = fs.readFileSync(inputPath, "utf8").split("\n")
 
-const report = data.map(line => {
-    const [name, marks] = line.split(" ");
+ let result= data.map((string)=>
+{
+    const[name,marks]= string.split(" ")
+    return `${name} - ${marks>=40 ? "PASS" : "FAIL"}`
+})
 
-    return `${name} - ${Number(marks) >= 40 ? "PASS" : "FAIL"}`;
-});
-
-fs.writeFileSync(outputPath, report.join("\n"));
+fs.writeFileSync(outputPath, result.join("\n"));

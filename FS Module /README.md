@@ -2,11 +2,11 @@
 
 ## Difficulty
 
-🟢 Easy
+Medium
 
 ## Estimated Time
 
-15–20 Minutes
+20–25 Minutes
 
 ---
 
