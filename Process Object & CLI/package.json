@@ -1,0 +1,23 @@
+{
+  "name": "lecture-9-cli-calculator",
+  "version": "1.0.0",
+  "description": "Node.js CLI Calculator - Learn process.argv, switch statements, and CLI applications",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "mocha tests/test.js",
+    "start": "node src/index.js"
+  },
+  "keywords": [
+    "nodejs",
+    "cli",
+    "calculator",
+    "process.argv",
+    "command-line-arguments"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0"
+  }
+}
