@@ -2,7 +2,7 @@
 
 ## Difficulty
 
-🟢 Beginner
+Beginner
 
 ## Estimated Time
 

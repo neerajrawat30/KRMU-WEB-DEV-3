@@ -1,8 +1,7 @@
 # Basic HTTP Server - First Backend Route
 
 ## Difficulty
-
-🟢 Beginner
+Easy
 
 ## Estimated Time
 
