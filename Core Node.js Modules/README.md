@@ -81,6 +81,22 @@ undefined
 1
 ```
 
+### Explanation
+
+- Initially, the counter value is **0**.
+- After two calls to `increment()`, the value becomes **2**.
+- Calling `decrement()` reduces it to **1**.
+- Since the counter is private, `counter.count` is **undefined**.
+- Even after assigning `counter.count = 100`, the internal counter remains unchanged because it is stored privately within the module.
+
+---
+
+# Constraints
+
+- Do not use classes.
+- Do not use global variables.
+- Do not export the counter variable.
+- Only the provided methods should be able to access or modify the counter.
 
 
 ---

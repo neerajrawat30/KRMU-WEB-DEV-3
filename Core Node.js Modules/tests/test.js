@@ -1,37 +1,63 @@
 const { expect } = require("chai");
 
 describe("Counter Module", function () {
-  let counterModule;
+  let counter;
 
   beforeEach(function () {
     delete require.cache[require.resolve("../src/index")];
-    counterModule = require("../src/index");
+    counter = require("../src/index");
   });
 
-  it("should return 0 initially", function () {
-    expect(counterModule.getCount()).to.equal(0);
+  it("should export the required methods", function () {
+    expect(counter.increment).to.be.a("function");
+    expect(counter.decrement).to.be.a("function");
+    expect(counter.getCount).to.be.a("function");
+  });
+
+  it("should initialize counter with 0", function () {
+    expect(counter.getCount()).to.equal(0);
   });
 
   it("should increment the counter", function () {
-    counterModule.increment();
-    expect(counterModule.getCount()).to.equal(1);
+    counter.increment();
+    expect(counter.getCount()).to.equal(1);
+  });
+
+  it("should increment multiple times", function () {
+    counter.increment();
+    counter.increment();
+    counter.increment();
+
+    expect(counter.getCount()).to.equal(3);
   });
 
   it("should decrement the counter", function () {
-    counterModule.increment();
-    counterModule.increment();
-    counterModule.decrement();
+    counter.increment();
+    counter.increment();
 
-    expect(counterModule.getCount()).to.equal(1);
+    counter.decrement();
+
+    expect(counter.getCount()).to.equal(1);
   });
 
-  it("should maintain private count variable", function () {
-    expect(counterModule.count).to.be.undefined;
+  it("should allow negative values", function () {
+    counter.decrement();
+
+    expect(counter.getCount()).to.equal(-1);
   });
 
-  it("should not allow direct modification of counter", function () {
-    counterModule.count = 100;
+  it("should not expose the internal counter", function () {
+    expect(counter.count).to.equal(undefined);
+  });
 
-    expect(counterModule.getCount()).to.not.equal(100);
+  it("should ignore direct modification of counter", function () {
+    counter.count = 100;
+
+    expect(counter.getCount()).to.equal(0);
+  });
+
+  it("should return a number", function () {
+    expect(counter.getCount()).to.be.a("number");
   });
 });
+

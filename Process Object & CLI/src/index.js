@@ -18,28 +18,4 @@
 // node index.js divide 20 10     → should output: 2
 // node index.js invalid 20 10     → should output: Invalid Operation
 
-const [, , command, num1, num2] = process.argv;
-
-const first = Number(num1);
-const second = Number(num2);
-
-switch (command) {
-    case "add":
-        console.log(first + second);
-        break;
-
-    case "subtract":
-        console.log(first - second);
-        break;
-
-    case "multiply":
-        console.log(first * second);
-        break;
-
-    case "divide":
-        console.log(first / second);
-        break;
-
-    default:
-        console.log("Invalid Operation");
-}
+// write your code here. 

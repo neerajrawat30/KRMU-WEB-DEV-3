@@ -100,26 +100,6 @@ Should return appropriate JSON responses with correct status codes.
 
 ---
 
-# Project Structure
-
-```text
-http-server/
-
-│
-
-├── src/
-│   └── index.js
-
-├── tests/
-│   └── test.js
-
-├── package.json
-
-└── README.md
-```
-
----
-
 # Running the Project
 
 Install dependencies:
