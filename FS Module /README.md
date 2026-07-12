@@ -80,43 +80,11 @@ David - FAIL
 
 ---
 
-# Example
-
-### students.txt
-
-```text
-Rahul 95
-Aman 21
-Priya 40
-Riya 68
-```
-
-### report.txt
-
-```text
-Rahul - PASS
-Aman - FAIL
-Priya - PASS
-Riya - PASS
-```
-
----
-
 # Constraints
 
 - The input file will never be empty.
 - Each line will always contain one student name followed by one integer.
 - Marks will always be between 0 and 100.
-
----
-
-# Acceptance Criteria
-
-- The program reads `students.txt`.
-- The program creates `report.txt`.
-- Every student's result is calculated correctly.
-- Each student appears exactly once in the output.
-- The output format matches the specification exactly.
 
 ---
 
@@ -145,7 +113,7 @@ student-marks-report/
 │   └── report.txt
 
 ├── tests/
-│   └── report.test.js
+│   └── test.js
 
 ├── package.json
 

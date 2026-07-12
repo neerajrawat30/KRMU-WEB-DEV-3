@@ -92,8 +92,6 @@ undefined
 ---
 
 # Constraints
-
-- Do not use classes.
 - Do not use global variables.
 - Do not export the counter variable.
 - Only the provided methods should be able to access or modify the counter.
@@ -124,7 +122,7 @@ private-counter-module/
 │   └── index.js
 
 ├── tests/
-│   └── counter.test.js
+│   └──test.js
 
 ├── package.json
 

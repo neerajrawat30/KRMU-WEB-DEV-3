@@ -44,34 +44,12 @@ The server should:
 
 3. Set appropriate response headers (`Content-Type: application/json`)
 4. Start the server when the module is executed
-5. Export a function to close the server (for testing purposes)
-
----
-
-# Functional Requirements
-
-- The server must start automatically when `index.js` is executed
-- All responses must be valid JSON
-- The server should handle requests concurrently
-- The server must be closable via an exported function for testing
-- Proper HTTP status codes must be returned for each route
-- Content-Type header must be set to `application/json` for all responses
 
 ---
 
 # Example Usage
 
-```javascript
-const closeServer = require("./src/index");
-
-// Server starts automatically
-// It will listen on port 3000
-
-// You can close the server using:
-// closeServer();
-```
-
-When the server is running, requests like:
+After starting the server, test these routes:
 
 ```bash
 curl http://localhost:3000/
@@ -90,14 +68,11 @@ Should return appropriate JSON responses with correct status codes.
 
 | ID | Description | Expected Result |
 |----|-------------|----------------|
-| TC-001 | Server listens on port 3000 | Pass |
-| TC-002 | GET `/` returns correct response with status 200 | Pass |
-| TC-003 | GET `/api/data` returns data array with status 200 | Pass |
-| TC-004 | GET `/about` returns about message with status 200 | Pass |
-| TC-005 | Unknown route returns 404 error | Pass |
-| TC-006 | Response Content-Type is application/json | Pass |
-| TC-007 | Server can be closed using exported function | Pass |
-
+| TC-001 | GET `/` returns status `200` and message `Welcome to Home` | Pass |
+| TC-002 | GET `/api/data` returns `[1, 2, 3, 4, 5]` with status `200` | Pass |
+| TC-003 | GET `/about` returns message `About Page` with status `200` | Pass |
+| TC-004 | GET unknown route returns status `404` with `{"error":"Not Found"}` | Pass |
+| TC-005 | Response `Content-Type` is `application/json` | Pass |
 ---
 
 # Running the Project

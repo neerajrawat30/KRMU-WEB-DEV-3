@@ -1,5 +1,5 @@
 {
-  "name": "private-counter-module",
+  "name": "student-marks-report",
   "version": "1.0.0",
   "scripts": {
     "test": "mocha \"tests/**/*test.js\""

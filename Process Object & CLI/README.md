@@ -1,8 +1,7 @@
 # CLI Calculator
 
 ## Difficulty
-
-Beginner
+Easy
 
 ## Estimated Time
 
@@ -61,67 +60,49 @@ Invalid Operation
 
 ---
 
-# Example Usage
+
+## Input Format
 
 ```bash
-node index.js add 20 10
+node src/index.js <command> <num1> <num2>
 ```
 
-Output
+## Examples
 
+```bash
+node src/index.js add 20 10
+```
 ```text
 30
 ```
 
 ```bash
-node index.js subtract 20 10
+node src/index.js subtract 20 10
 ```
-
-Output
-
 ```text
 10
 ```
 
 ```bash
-node index.js multiply 20 10
+node src/index.js multiply 20 10
 ```
-
-Output
-
 ```text
 200
 ```
 
 ```bash
-node index.js divide 20 10
+node src/index.js divide 20 10
 ```
-
-Output
-
 ```text
 2
 ```
 
 ```bash
-node index.js power 2 3
+node src/index.js power 2 3
 ```
-
-Output
-
 ```text
 Invalid Operation
 ```
-
----
-
-# Acceptance Criteria
-
-* The program reads command-line arguments correctly.
-* Supports the `add`, `subtract`, `multiply`, and `divide` commands.
-* Prints the correct result for each operation.
-* Prints `Invalid Operation` for unsupported commands.
-* Produces output using `console.log()`.
 
 ---
 

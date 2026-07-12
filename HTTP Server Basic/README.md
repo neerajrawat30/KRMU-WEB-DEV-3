@@ -24,14 +24,6 @@ Your server should:
    - Status code: `200` (OK)
    - Content-Type: `text/plain`
    - Body: `"Welcome to your first backend route"`
-
-### Server Behavior
-When a client makes a GET request to `http://localhost:3000/`, your server should:
-- Receive the request
-- Send back a 200 OK response
-- Include the welcome message in the response body
-- The client should see: `Welcome to your first backend route`
-
 ---
 
 ## Examples
@@ -43,7 +35,7 @@ When a client makes a GET request to `http://localhost:3000/`, your server shoul
 ### Testing the Server
 ```bash
 # Start the server
-node src/indexSolution.js
+node src/index.js
 
 # In another terminal, test with curl
 curl http://localhost:3000/
@@ -52,16 +44,6 @@ curl http://localhost:3000/
 # Welcome to your first backend route
 ```
 
----
-
-## Constraints
-
-- The server must listen on **port 3000**
-- The route must respond to **GET requests** to the **root path** (`/`)
-- The response must have **status code 200**
-- The response must have **Content-Type: text/plain**
-- The server must handle the request without crashing
-- The response body must be exactly: `"Welcome to your first backend route"`
 
 ---
 ### Installation
@@ -74,12 +56,21 @@ npm install
 
 ```bash
 # Start the server in one terminal
-node src/indexSolution.js
+node src/index.js
 
 # In another terminal, test it
 curl http://localhost:3000/
 # Output: Welcome to your first backend route
 ```
+
+## Test Cases
+
+| ID | Description | Expected Result |
+|----|-------------|----------------|
+| TC-001 | Server responds to `GET /` | Pass |
+| TC-002 | Response status code is `200` | Pass |
+| TC-003 | Response body is `Welcome to your first backend route` | Pass |
+| TC-004 | `Content-Type` header is `text/plain` | Pass |
 
 ### Running Tests
 
@@ -94,27 +85,3 @@ The tests will:
 - Stop the server after testing
 
 ---
-
-## Architecture Overview
-
-```
-Client                    Your Server
-   |                          |
-   +------- GET / ----------->|
-   |                          |
-   |    HTTP Request          |
-   |                      [createServer]
-   |                          |
-   |                    [Check URL]
-   |                          |
-   |<----- 200 OK ------------|
-   |  Content-Type: text/plain|
-   |  "Welcome to your..."    |
-   |                    [Response sent]
-   |
-[Display response]
-```
-
----
-
-**Good luck with your first backend! 🚀**
