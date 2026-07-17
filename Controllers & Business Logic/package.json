@@ -1,0 +1,27 @@
+{
+  "name": "controllers-business-logic",
+  "version": "1.0.0",
+  "description": "Beginner practice on controllers and business logic in Express",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "mocha tests/test.js --timeout 5000",
+    "solution": "TARGET_FILE=../src/indexSolution npm test"
+  },
+  "keywords": [
+    "express",
+    "controller",
+    "business-logic",
+    "nodejs"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0",
+    "supertest": "^7.1.1"
+  }
+}
