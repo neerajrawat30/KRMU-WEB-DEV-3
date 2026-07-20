@@ -1,0 +1,28 @@
+{
+  "name": "crud-operations-using-mvc",
+  "version": "1.0.0",
+  "description": "Beginner CRUD Operations using MVC with pre-given routes",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "mocha tests/test.js --timeout 5000",
+    "solution": "TARGET_FILE=../src/indexSolution npm test"
+  },
+  "keywords": [
+    "express",
+    "mvc",
+    "crud",
+    "controller",
+    "nodejs"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0",
+    "supertest": "^7.1.1"
+  }
+}
