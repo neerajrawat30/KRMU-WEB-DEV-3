@@ -28,6 +28,22 @@ Implement the module inside:
 src/index.js
 ```
 
+---
+
+# How Your Module Will Be Used
+
+**See `src/example.js` to understand how your exported methods will be imported and used.**
+
+You can also run this example to see the expected behavior:
+
+```bash
+node src/example.js
+```
+
+---
+
+# Module Methods
+
 The module should export an object with the following methods:
 
 - `increment()` – Increases the counter by **1**.
@@ -47,58 +63,18 @@ The module should export an object with the following methods:
 
 ---
 
-# Example Usage
+# Key Behavior
 
-```javascript
-const counter = require("./src/index");
-
-console.log(counter.getCount());
-
-counter.increment();
-console.log(counter.getCount());
-
-counter.increment();
-console.log(counter.getCount());
-
-counter.decrement();
-console.log(counter.getCount());
-
-console.log(counter.count);
-
-counter.count = 100;
-
-console.log(counter.getCount());
+```
+0          (initial value)
+1          (after increment)
+2          (after another increment)
+1          (after decrement)
+undefined  (counter property is private - cannot be accessed)
+1          (internal counter unchanged despite direct assignment attempt)
 ```
 
-Expected Output
-
-```text
-0
-1
-2
-1
-undefined
-1
-```
-
-### Explanation
-
-- Initially, the counter value is **0**.
-- After two calls to `increment()`, the value becomes **2**.
-- Calling `decrement()` reduces it to **1**.
-- Since the counter is private, `counter.count` is **undefined**.
-- Even after assigning `counter.count = 100`, the internal counter remains unchanged because it is stored privately within the module.
-
 ---
-
-# Constraints
-- Do not use global variables.
-- Do not export the counter variable.
-- Only the provided methods should be able to access or modify the counter.
-
-
----
-
 # Test Cases
 
 | ID | Description | Expected Result |
@@ -114,18 +90,16 @@ undefined
 # Project Structure
 
 ```text
-private-counter-module/
-
-│
+core-nodejs-modules/
 
 ├── src/
-│   └── index.js
-
+│   ├── index.js          ← Your implementation here
+│   └── example.js        ← See how it's used
+│
 ├── tests/
-│   └──test.js
-
+│   └── test.js
+│
 ├── package.json
-
 └── README.md
 ```
 
@@ -137,6 +111,12 @@ Install dependencies:
 
 ```bash
 npm install
+```
+
+Run the example to see expected behavior:
+
+```bash
+node src/example.js
 ```
 
 Run the test cases:

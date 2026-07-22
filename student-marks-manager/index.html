@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Marks Manager</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fff7ed;
+      padding: 20px;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+      padding: 20px;
+    }
+    h1 {
+      margin-top: 0;
+      text-align: center;
+      color: #9a3412;
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    input {
+      padding: 10px;
+      border: 1px solid #fed7aa;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+    button {
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      padding: 10px 12px;
+      font-size: 14px;
+      background: #ea580c;
+      color: #ffffff;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    th, td {
+      border: 1px solid #ffedd5;
+      padding: 10px;
+      text-align: center;
+    }
+    th { background: #fff7ed; }
+    .delete-btn {
+      background: #dc2626;
+      color: #ffffff;
+      padding: 6px 10px;
+      font-size: 12px;
+    }
+    @media (max-width: 760px) {
+      .form-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Student Marks Manager</h1>
+
+    <div class="form-grid">
+      <input id="studentName" type="text" placeholder="Student Name">
+      <input id="mark1" type="number" min="0" max="100" placeholder="Subject 1">
+      <input id="mark2" type="number" min="0" max="100" placeholder="Subject 2">
+      <input id="mark3" type="number" min="0" max="100" placeholder="Subject 3">
+    </div>
+    <button onclick="addStudent()">Add Student</button>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Subject 1</th>
+          <th>Subject 2</th>
+          <th>Subject 3</th>
+          <th>Total</th>
+          <th>Average</th>
+          <th>Grade</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="marksTableBody"></tbody>
+    </table>
+  </div>
+
+  <script>
+    const marksTableBody = document.getElementById("marksTableBody");
+
+    function getGrade(avg) {
+      if (avg >= 90) return "A+";
+      if (avg >= 80) return "A";
+      if (avg >= 70) return "B";
+      if (avg >= 60) return "C";
+      if (avg >= 50) return "D";
+      return "F";
+    }
+
+    function addStudent() {
+      const name = document.getElementById("studentName").value.trim();
+      const m1 = Number(document.getElementById("mark1").value);
+      const m2 = Number(document.getElementById("mark2").value);
+      const m3 = Number(document.getElementById("mark3").value);
+
+      const marks = [m1, m2, m3];
+      const allValid = marks.every(function (mark) {
+        return Number.isFinite(mark) && mark >= 0 && mark <= 100;
+      });
+
+      if (name === "" || !allValid) {
+        return;
+      }
+
+      const total = m1 + m2 + m3;
+      const average = total / 3;
+      const grade = getGrade(average);
+
+      const row = document.createElement("tr");
+      row.innerHTML =
+        "<td>" + name + "</td>" +
+        "<td>" + m1 + "</td>" +
+        "<td>" + m2 + "</td>" +
+        "<td>" + m3 + "</td>" +
+        "<td>" + total + "</td>" +
+        "<td>" + average.toFixed(2) + "</td>" +
+        "<td>" + grade + "</td>" +
+        "<td><button class='delete-btn'>Delete</button></td>";
+
+      row.querySelector(".delete-btn").addEventListener("click", function () {
+        marksTableBody.removeChild(row);
+      });
+
+      marksTableBody.appendChild(row);
+
+      document.getElementById("studentName").value = "";
+      document.getElementById("mark1").value = "";
+      document.getElementById("mark2").value = "";
+      document.getElementById("mark3").value = "";
+    }
+  </script>
+</body>
+</html>

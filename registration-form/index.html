@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Form</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f5f3ff; margin: 0; padding: 24px; }
+    .card { max-width: 600px; margin: 0 auto; background: #fff; padding: 24px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+    h1 { margin-top: 0; color: #4c1d95; text-align: center; }
+    form { display: grid; gap: 14px; }
+    label { font-weight: 600; }
+    input, select, textarea { width: 100%; box-sizing: border-box; padding: 10px; border: 1px solid #c4b5fd; border-radius: 8px; margin-top: 6px; }
+    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .actions { display: flex; gap: 10px; }
+    button { border: 0; padding: 10px 16px; border-radius: 8px; cursor: pointer; }
+    .submit { background: #7c3aed; color: #fff; }
+    .reset { background: #e5e7eb; color: #111827; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Student Registration Form</h1>
+    <form>
+      <div class="row">
+        <label>First Name
+          <input type="text" name="firstName" placeholder="Enter first name" required>
+        </label>
+        <label>Last Name
+          <input type="text" name="lastName" placeholder="Enter last name" required>
+        </label>
+      </div>
+
+      <label>Email
+        <input type="email" name="email" placeholder="name@example.com" required>
+      </label>
+
+      <label>Phone Number
+        <input type="tel" name="phone" placeholder="10-digit mobile number" pattern="[0-9]{10}" required>
+      </label>
+
+      <div class="row">
+        <label>Date of Birth
+          <input type="date" name="dob" required>
+        </label>
+        <label>Gender
+          <select name="gender" required>
+            <option value="">Select gender</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+          </select>
+        </label>
+      </div>
+
+      <label>Course
+        <select name="course" required>
+          <option value="">Select course</option>
+          <option>BCA</option>
+          <option>B.Tech CSE</option>
+          <option>BBA</option>
+          <option>BA</option>
+        </select>
+      </label>
+
+      <label>Address
+        <textarea name="address" rows="4" placeholder="Enter full address"></textarea>
+      </label>
+
+      <div class="actions">
+        <button type="submit" class="submit">Register</button>
+        <button type="reset" class="reset">Reset</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
